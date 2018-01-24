@@ -7,11 +7,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Employees.Common", "Employe
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Employees.Common.Tests", "Employees.Common.Tests\Employees.Common.Tests.csproj", "{FE792753-DE81-41A0-8C00-3BC8DDAF10EA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Employees.Web", "Employees.Web\Employees.Web.csproj", "{F30291FD-DEE9-4338-9729-1867760BAF35}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmployeesOld", "Employees.Web\EmployeesOld.csproj", "{F30291FD-DEE9-4338-9729-1867760BAF35}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Employees.Entities", "Employees.Entities\Employees.Entities.csproj", "{28978E94-86D5-4FE4-AD89-1A349454577E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Employees.Data", "Employees.Data\Employees.Data.csproj", "{592C8B7C-C4CB-4140-BF05-44283A767960}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Employees.Web", "EmployeeAuthentication\Employees.Web.csproj", "{1B624523-4CF2-4B2F-9045-C3BE2519C4C3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{592C8B7C-C4CB-4140-BF05-44283A767960}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{592C8B7C-C4CB-4140-BF05-44283A767960}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{592C8B7C-C4CB-4140-BF05-44283A767960}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1B624523-4CF2-4B2F-9045-C3BE2519C4C3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1B624523-4CF2-4B2F-9045-C3BE2519C4C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1B624523-4CF2-4B2F-9045-C3BE2519C4C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1B624523-4CF2-4B2F-9045-C3BE2519C4C3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
