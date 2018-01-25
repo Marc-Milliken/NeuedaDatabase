@@ -43,9 +43,26 @@
                 @Html.DisplayFor(modelItem => item.Image)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.EmployeeID }) |
-                @Html.ActionLink("Details", "Details", new { id = item.EmployeeID }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.EmployeeID })
+                @if (User.Identity.IsAuthenticated)
+                {
+                    if (User.IsInRole("Admin"))
+                    {
+                        @Html.ActionLink("Edit |", "Edit", new { id = item.EmployeeID })
+                    }
+                    else if (User.IsInRole("Manager"))
+                    {
+                        @Html.ActionLink("Edit |", "Edit", new { id = item.EmployeeID })
+                    }
+                } 
+                @Html.ActionLink("Details", "Details", new { id = item.EmployeeID })
+                @if (User.Identity.IsAuthenticated)
+                {
+                    if (User.IsInRole("Admin"))
+                    {
+                        @Html.ActionLink("| Delete", "Delete", new { id = item.EmployeeID })
+                    }
+                }
+
             </td>
         </tr>
     }

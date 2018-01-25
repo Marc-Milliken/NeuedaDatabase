@@ -60,6 +60,7 @@ namespace NeuedaEmployees.Controllers
         }
 
         // GET: Employee/Edit/
+        [Authorize(Roles = "Admin, Manager")]
         public ActionResult Edit(Guid? id)
         {
             if (id == null)
@@ -75,7 +76,7 @@ namespace NeuedaEmployees.Controllers
         }
 
         // POST: Employee/Edit/
-        [HttpPost]
+        [Authorize(Roles = "Admin, Manager")]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "EmployeeID,Name,Address,PhoneNumber,EmergencyContactName,EmergencyContactPhoneNumber,JobRole,StartDate,PreviousJob,Documentation,UsefulLinks,Image")] Employee employee)
         {
@@ -89,6 +90,7 @@ namespace NeuedaEmployees.Controllers
         }
 
         // GET: Employee/Delete/
+        [Authorize(Roles = "Admin")]
         public ActionResult Delete(Guid? id)
         {
             if (id == null)
@@ -104,6 +106,7 @@ namespace NeuedaEmployees.Controllers
         }
 
         // POST: Employee/Delete/
+        [Authorize(Roles = "Admin")]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(Guid id)
