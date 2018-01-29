@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -16,12 +17,14 @@ namespace NeuedaEmployees.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Employee
+        [Authorize(Roles = "Admin, Manager, Employee")]
         public ActionResult Index()
         {
             return View(db.Employees.ToList());
         }
 
         // GET: Employee/Details/
+        [Authorize(Roles = "Admin, Manager, Employee")]
         public ActionResult Details(Guid? id)
         {
             if (id == null)
@@ -37,19 +40,31 @@ namespace NeuedaEmployees.Controllers
         }
 
         // GET: Employee/Create
+        [Authorize(Roles = "Admin, Manager, Employee")]
         public ActionResult Create()
         {
             return View();
         }
 
         // POST: Employee/Create
+        [Authorize(Roles = "Admin, Manager, Employee")]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "EmployeeID,Name,Address,PhoneNumber,EmergencyContactName,EmergencyContactPhoneNumber,JobRole,StartDate,PreviousJob,Documentation,UsefulLinks,Image")] Employee employee)
+        public ActionResult Create([Bind(Include = "EmployeeID,Name,Address,PhoneNumber,EmergencyContactName,EmergencyContactPhoneNumber,JobRole,StartDate,PreviousJob,Documentation,UsefulLinks,Image")] Employee employee, HttpPostedFileBase file)
         {
             if (ModelState.IsValid)
             {
+
+                if (file.ContentLength > 0)
+                {
+                    var fileName = Path.GetFileName(file.FileName);
+                    var path = Path.Combine(Server.MapPath("~/App_Data/uploads"), fileName);
+                    file.SaveAs(path);
+                    employee.Documentation = path;
+                }
+
                 employee.EmployeeID = Guid.NewGuid();
+
                 
                 db.Employees.Add(employee);
                 db.SaveChanges();
@@ -58,6 +73,20 @@ namespace NeuedaEmployees.Controllers
 
             return View(employee);
         }
+
+        //[HttpPost]
+        //public ActionResult Upload(HttpPostedFileBase file)
+        //{
+
+        //    if (file.ContentLength > 0)
+        //    {
+        //        var fileName = Path.GetFileName(file.FileName);
+        //        var path = Path.Combine(Server.MapPath("~/App_Data/uploads"), fileName);
+        //        file.SaveAs(path);
+        //    }
+
+        //    return RedirectToAction("Index");
+        //}
 
         // GET: Employee/Edit/
         [Authorize(Roles = "Admin, Manager")]
@@ -77,6 +106,7 @@ namespace NeuedaEmployees.Controllers
 
         // POST: Employee/Edit/
         [Authorize(Roles = "Admin, Manager")]
+        [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "EmployeeID,Name,Address,PhoneNumber,EmergencyContactName,EmergencyContactPhoneNumber,JobRole,StartDate,PreviousJob,Documentation,UsefulLinks,Image")] Employee employee)
         {

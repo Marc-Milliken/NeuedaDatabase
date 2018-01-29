@@ -136,6 +136,7 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Documents\Document.cs" />
     <Compile Include="Employees.ViewModels\EmployeeDisplayViewModel.cs" />
     <Compile Include="Employees.ViewModels\EmployeeEditViewModel.cs" />
     <Compile Include="Employees\Employee.cs" />

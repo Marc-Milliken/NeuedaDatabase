@@ -161,9 +161,13 @@
     <Compile Include="Migrations\201801221056329_InitialMigration.Designer.cs">
       <DependentUpon>201801221056329_InitialMigration.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201801241158496_Marc.cs" />
-    <Compile Include="Migrations\201801241158496_Marc.Designer.cs">
-      <DependentUpon>201801241158496_Marc.cs</DependentUpon>
+    <Compile Include="Migrations\201801261400569_Upload Function.cs" />
+    <Compile Include="Migrations\201801261400569_Upload Function.Designer.cs">
+      <DependentUpon>201801261400569_Upload Function.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201801261433264_Back to origional.cs" />
+    <Compile Include="Migrations\201801261433264_Back to origional.Designer.cs">
+      <DependentUpon>201801261433264_Back to origional.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -178,8 +182,11 @@
     <EmbeddedResource Include="Migrations\201801221056329_InitialMigration.resx">
       <DependentUpon>201801221056329_InitialMigration.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201801241158496_Marc.resx">
-      <DependentUpon>201801241158496_Marc.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201801261400569_Upload Function.resx">
+      <DependentUpon>201801261400569_Upload Function.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801261433264_Back to origional.resx">
+      <DependentUpon>201801261433264_Back to origional.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />
