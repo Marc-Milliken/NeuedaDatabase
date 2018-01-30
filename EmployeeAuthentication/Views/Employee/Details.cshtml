@@ -19,6 +19,9 @@
             <li role="presentation">
                 <a href="#documents" role="tab" data-toggle="tab">Documents</a>
             </li>
+            <li role="presentation">
+                <a href="#links" role="tab" data-toggle="tab">Links</a>
+            </li>
         </ul>
 
         <!-- Tab Panes -->
@@ -95,16 +98,6 @@
                             @Html.DisplayFor(model => model.PreviousJob)
                         </dd>
 
-
-
-                        <dt>
-                            @Html.DisplayNameFor(model => model.UsefulLinks):
-                        </dt>
-
-                        <dd>
-                            <br /><br />@Html.DisplayFor(model => model.UsefulLinks)
-                        </dd>
-
                         <dt>
                             @Html.DisplayNameFor(model => model.Image)
                         </dt>
@@ -131,6 +124,23 @@
                     </dl>
                 </div>
             </div>
+            <!-- Links Tab -->
+            <div role="tabpanel" class="tab-pane" id="links">
+                <div class="form-horizontal">
+                    <h4>Useful Links</h4>
+                    <hr />
+                    <dl>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.UsefulLinks):
+                        </dt>
+
+                        <dd>
+                            <br /><br />@Html.DisplayFor(model => model.UsefulLinks)
+                        </dd>
+                    </dl>
+                </div>
+            </div>
+
         </div>
     </div>
 </div>
