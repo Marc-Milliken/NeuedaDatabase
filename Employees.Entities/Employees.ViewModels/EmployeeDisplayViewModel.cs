@@ -7,7 +7,7 @@ using System.Web;
 
 namespace Employees.Entities.Employees.ViewModels
 {
-    public class EmployeeDisplayViewModel
+    public partial class EmployeeDisplayViewModel
     {
 
         [Display(Name = "Employee Number")]
@@ -15,6 +15,9 @@ namespace Employees.Entities.Employees.ViewModels
 
         [Display(Name = "Employee Name")]
         public string Name { get; set; }
+
+        [Display(Name = "Date of Birth")]
+        public DateTime DateOfBirth { get; set; }
 
         [Display(Name = "Employee Address")]
         public string Address { get; set; }
@@ -32,7 +35,7 @@ namespace Employees.Entities.Employees.ViewModels
         public string JobRole { get; set; }
 
         [Display(Name = "Start Date")]
-        public string StartDate { get; set; }
+        public DateTime StartDate { get; set; }
 
         [Display(Name = "Previous Job")]
         public string PreviousJob { get; set; }

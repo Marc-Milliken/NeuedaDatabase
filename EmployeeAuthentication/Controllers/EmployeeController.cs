@@ -50,18 +50,18 @@ namespace NeuedaEmployees.Controllers
         [Authorize(Roles = "Admin, Manager, Employee")]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "EmployeeID,Name,Address,PhoneNumber,EmergencyContactName,EmergencyContactPhoneNumber,JobRole,StartDate,PreviousJob,Documentation,UsefulLinks,Image")] Employee employee, HttpPostedFileBase file)
+        public ActionResult Create([Bind(Include = "EmployeeID,Name,DateOfBirth,Address,PhoneNumber,EmergencyContactName,EmergencyContactPhoneNumber,JobRole,StartDate,PreviousJob,Documentation,UsefulLinks,Image")] Employee employee)
         {
             if (ModelState.IsValid)
             {
 
-                if (file.ContentLength > 0)
-                {
-                    var fileName = Path.GetFileName(file.FileName);
-                    var path = Path.Combine(Server.MapPath("~/App_Data/uploads"), fileName);
-                    file.SaveAs(path);
-                    employee.Documentation = path;
-                }
+                //if (file.ContentLength > 0)
+                //{
+                //    var fileName = Path.GetFileName(file.FileName);
+                //    var path = Path.Combine(Server.MapPath("~/App_Data/uploads"), fileName);
+                //    file.SaveAs(path);
+                //    employee.Documentation = path;
+                //}
 
                 employee.EmployeeID = Guid.NewGuid();
 
@@ -72,6 +72,41 @@ namespace NeuedaEmployees.Controllers
             }
 
             return View(employee);
+        }
+
+        [HttpGet]
+        public ActionResult Upload()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Upload(HttpPostedFileBase file)
+        {
+
+            if (file != null)
+            {
+                string pic = Path.GetFileName(file.FileName);
+                string path = Path.Combine(Server.MapPath("~/App_Data/uploads"), pic);
+                // file is uploaded
+                file.SaveAs(path);
+                //db.Employees.Add(path);
+                //return View((object)path);
+
+
+                // save the image path path to the database or you can send image
+                // directly to database
+                // in-case if you want to store byte[] ie. for DB
+                using (MemoryStream ms = new MemoryStream())
+                {
+                    file.InputStream.CopyTo(ms);
+                    byte[] array = ms.GetBuffer();
+                   // db.Employees.Add(path);
+                }
+
+                return RedirectToAction("Index");
+            }
+            return RedirectToAction("Index");
         }
 
         //[HttpPost]
@@ -108,7 +143,7 @@ namespace NeuedaEmployees.Controllers
         [Authorize(Roles = "Admin, Manager")]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "EmployeeID,Name,Address,PhoneNumber,EmergencyContactName,EmergencyContactPhoneNumber,JobRole,StartDate,PreviousJob,Documentation,UsefulLinks,Image")] Employee employee)
+        public ActionResult Edit([Bind(Include = "EmployeeID,Name,DateOfBirth,Address,PhoneNumber,EmergencyContactName,EmergencyContactPhoneNumber,JobRole,StartDate,PreviousJob,Documentation,UsefulLinks,Image")] Employee employee)
         {
             if (ModelState.IsValid)
             {

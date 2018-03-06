@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -47,18 +48,46 @@ namespace EmployeeAuthentication.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "DocumentID,Name")] Document document)
+        public ActionResult Create([Bind(Include = "DocumentID,Name,Content")] Document document, HttpPostedFileBase upload)
         {
-            if (ModelState.IsValid)
+            try
             {
-                document.DocumentID = Guid.NewGuid();
-                db.Documents.Add(document);
-                db.SaveChanges();
-                return RedirectToAction("Index");
+
+
+                if (ModelState.IsValid)
+                {
+                    document.DocumentID = Guid.NewGuid();
+
+                    if (upload != null && upload.ContentLength > 0)
+                    {
+                        var tempfile = new Document
+                        {
+                            Name = System.IO.Path.GetFileName(upload.FileName),
+                        };
+                        using (var reader = new System.IO.BinaryReader(upload.InputStream))
+                        {
+                            tempfile.Content = reader.ReadBytes(upload.ContentLength);
+                        }
+                        document.Content = tempfile.Content;
+                    }
+                    db.Documents.Add(document);
+                    db.SaveChanges();
+
+
+                    return RedirectToAction("Index");
+                }
+
+
+            }
+            catch (RetryLimitExceededException /* dex */)
+            {
+                //Log the error (uncomment dex variable name and add a line here to write a log.
+                ModelState.AddModelError("", "Unable to save changes. Try again, and if the problem persists see your system administrator.");
             }
 
             return View(document);
         }
+
 
         // GET: Documents/Edit/5
         public ActionResult Edit(Guid? id)

@@ -1,0 +1,34 @@
+﻿@model Employees.Entities.Images.Image
+
+@{
+    ViewBag.Title = "Display";
+}
+
+<h2>Display</h2>
+
+<div>
+    <h4>Image</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ImageName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ImageName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UploadImage)
+        </dt>
+
+        <dd>
+            <img src="@Url.Content("~/Uploads/")@Html.DisplayFor(model => model.UploadImage)" width="100" height="100" />
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ImageID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

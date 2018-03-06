@@ -43,6 +43,14 @@
                         </dd>
 
                         <dt>
+                            @Html.DisplayNameFor(model => model.DateOfBirth):
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.DateOfBirth)
+                        </dd>
+
+                        <dt>
                             @Html.DisplayNameFor(model => model.Address):
                         </dt>
 
@@ -103,8 +111,16 @@
                         </dt>
 
                         <dd>
-                            @Html.DisplayFor(model => model.Image)
+                            @Html.DisplayFor(model => model.ImageID)
                         </dd>
+                        <dd>
+
+                            @{Html.RenderAction("Display", "Image", new { id = Model.ImageID });}
+
+                            @*<img src="@Url.Content("~/Uploads/Marc_Milliken.JPG")" alt="Image" width="100" />*@
+
+                        </dd>
+
                     </dl>
                 </div>
             </div>
@@ -135,7 +151,7 @@
                         </dt>
 
                         <dd>
-                            <br /><br />@Html.DisplayFor(model => model.UsefulLinks)
+                            <br /><a href="@(Html.DisplayFor(model => model.UsefulLinks))">@(Html.DisplayFor(model => model.UsefulLinks))</a>
                         </dd>
                     </dl>
                 </div>

@@ -1,13 +1,13 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Web;
+using Employees.Entities.Images;
 
 namespace Employees.Entities.Employees
 {
     public class Employee
     {
-
         [Key]
         [Column(Order = 1)]
         [Display(Name = "Employee Number")]
@@ -17,6 +17,13 @@ namespace Employees.Entities.Employees
         [MaxLength(128)]
         [Display(Name = "Employee Name")]
         public string Name { get; set; }
+
+        [Required]
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
+        //[Column(TypeName = "DateTime2")]
+        [Display(Name = "Date of Birth")]
+        public DateTime DateOfBirth { get; set; }
 
         [Required]
         [MaxLength(128)]
@@ -44,9 +51,11 @@ namespace Employees.Entities.Employees
         public string JobRole { get; set; }
 
         [Required]
-        [MaxLength(128)]
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
+        //[Column(TypeName = "DateTime2")]
         [Display(Name = "Start Date")]
-        public string StartDate { get; set; }
+        public DateTime StartDate { get; set; }
 
         [Required]
         [MaxLength(128)]
@@ -65,6 +74,8 @@ namespace Employees.Entities.Employees
         [Display(Name = "Image")]
         public string Image { get; set; }
 
+
+        public ICollection<Image> ImageID { get; set; }
 
     }
 }

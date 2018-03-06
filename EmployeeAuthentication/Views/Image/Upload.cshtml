@@ -1,0 +1,40 @@
+﻿@model Employees.Entities.Images.Image
+
+@{
+    ViewBag.Title = "Upload";
+}
+
+@using (Html.BeginForm("Upload", "Image", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Upload Image</legend>
+
+
+        <div class="editor-field">
+            @Html.HiddenFor(model => model.ImageID)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ImageName)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ImageName)
+            @Html.ValidationMessageFor(model => model.ImageName)
+        </div>
+        <br />
+        <div class="editor-field">
+            <input id="ImageUpload" type="file" name="ImageUpload" />
+        </div><br />
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

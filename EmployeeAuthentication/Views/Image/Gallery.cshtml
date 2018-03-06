@@ -1,0 +1,39 @@
+﻿@model IEnumerable<Employees.Entities.Images.Image>
+
+@{
+    ViewBag.Title = "Gallery";
+}
+
+<h2>Gallery</h2>
+
+<table>
+    <tr>
+
+        <th>
+            @Html.DisplayNameFor(model => model.ImageName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UploadImage)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.ImageName)
+            </td>
+            <td>
+                <img src="@Url.Content("~/Uploads/")@item.UploadImage" width="100" height="100" />
+            </td>
+
+        </tr>
+    }
+
+</table>
+<p>
+    @*@Html.ActionLink("Edit", "Edit", new { id = Model.ImageID }) |
+    @Html.ActionLink("Back to List", "Index")*@
+</p>

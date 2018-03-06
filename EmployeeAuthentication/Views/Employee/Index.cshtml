@@ -40,7 +40,8 @@
                 @Html.DisplayFor(modelItem => item.StartDate)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Image)
+                @Html.DisplayFor(modelItem => item.ImageID)
+                @*<img src="@Url.Content("~/Uploads/Marc_Milliken.JPG")" alt="Image" width="100" />*@
             </td>
             <td>
                 @if (User.Identity.IsAuthenticated)

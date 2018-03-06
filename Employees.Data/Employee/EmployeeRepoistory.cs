@@ -25,6 +25,7 @@ namespace Employees.Data
                         {
                             EmployeeID = x.EmployeeID,
                             Name = x.Name,
+                            DateOfBirth = x.DateOfBirth,
                             Address = x.Address,
                             PhoneNumber = x.PhoneNumber,
                             EmergencyContactName = x.EmergencyContactName,
@@ -65,6 +66,7 @@ namespace Employees.Data
                         {
                             EmployeeID = newGuid,
                             Name = employeeedit.Name,
+                            DateOfBirth = employeeedit.DateOfBirth,
                             Address = employeeedit.Address,
                             PhoneNumber = employeeedit.PhoneNumber,
                             EmergencyContactName = employeeedit.EmergencyContactName,
