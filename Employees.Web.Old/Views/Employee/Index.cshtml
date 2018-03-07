@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<Employees.Entities.Employees.Employee>
 
 @{
-    ViewBag.Title = "Employee List";
+    ViewBag.Title = "Index";
 }
 
 <h2>Neueda Employee List</h2>
@@ -40,30 +40,12 @@
                 @Html.DisplayFor(modelItem => item.StartDate)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.ImageID)
-                @*<img src="@Url.Content("~/Uploads/Marc_Milliken.JPG")" alt="Image" width="100" />*@
+                @Html.DisplayFor(modelItem => item.Image)
             </td>
             <td>
-                @if (User.Identity.IsAuthenticated)
-                {
-                    if (User.IsInRole("Admin"))
-                    {
-                        @Html.ActionLink("Edit |", "Edit", new { id = item.EmployeeID })
-                    }
-                    else if (User.IsInRole("Manager"))
-                    {
-                        @Html.ActionLink("Edit |", "Edit", new { id = item.EmployeeID })
-                    }
-                }
-                @Html.ActionLink("Details", "Details", new { id = item.EmployeeID })
-                @if (User.Identity.IsAuthenticated)
-                {
-                    if (User.IsInRole("Admin"))
-                    {
-                        @Html.ActionLink("| Delete", "Delete", new { id = item.EmployeeID })
-                    }
-                }
-
+                @Html.ActionLink("Edit", "Edit", new { id = item.EmployeeID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.EmployeeID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.EmployeeID })
             </td>
         </tr>
     }

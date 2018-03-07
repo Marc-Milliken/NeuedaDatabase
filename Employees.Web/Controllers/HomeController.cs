@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace NeuedaEmployees.Controllers
+namespace EmployeeAuthentication.Controllers
 {
     public class HomeController : Controller
     {
