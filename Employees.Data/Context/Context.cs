@@ -12,7 +12,7 @@ namespace Employees.Data
 
         public ApplicationDbContext() : base("ApplicationDbContext")
         {
-            
+
         }
 
         public DbSet<Employee> Employees { get; set; }

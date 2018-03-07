@@ -219,49 +219,9 @@
     <Compile Include="Migrations\201801261433264_Back to origional.Designer.cs">
       <DependentUpon>201801261433264_Back to origional.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201801301609250_Upload Test.cs" />
-    <Compile Include="Migrations\201801301609250_Upload Test.Designer.cs">
-      <DependentUpon>201801301609250_Upload Test.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201802011437068_Add Image Table.cs" />
-    <Compile Include="Migrations\201802011437068_Add Image Table.Designer.cs">
-      <DependentUpon>201802011437068_Add Image Table.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201802021227189_foreign Key for image table.cs" />
-    <Compile Include="Migrations\201802021227189_foreign Key for image table.Designer.cs">
-      <DependentUpon>201802021227189_foreign Key for image table.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201802261641175_New table relationships.cs" />
-    <Compile Include="Migrations\201802261641175_New table relationships.Designer.cs">
-      <DependentUpon>201802261641175_New table relationships.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201802271139052_Fixing Table Relationships.cs" />
-    <Compile Include="Migrations\201802271139052_Fixing Table Relationships.Designer.cs">
-      <DependentUpon>201802271139052_Fixing Table Relationships.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201802271143079_Fix Tables.cs" />
-    <Compile Include="Migrations\201802271143079_Fix Tables.Designer.cs">
-      <DependentUpon>201802271143079_Fix Tables.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201802281002095_Date of Birth Added.cs" />
-    <Compile Include="Migrations\201802281002095_Date of Birth Added.Designer.cs">
-      <DependentUpon>201802281002095_Date of Birth Added.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201802281131321_Updated Dates.cs" />
-    <Compile Include="Migrations\201802281131321_Updated Dates.Designer.cs">
-      <DependentUpon>201802281131321_Updated Dates.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201802281137201_Fixing Dates.cs" />
-    <Compile Include="Migrations\201802281137201_Fixing Dates.Designer.cs">
-      <DependentUpon>201802281137201_Fixing Dates.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201802281450114_Datearino.cs" />
-    <Compile Include="Migrations\201802281450114_Datearino.Designer.cs">
-      <DependentUpon>201802281450114_Datearino.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201803051702490_Trying to fix dates again.cs" />
-    <Compile Include="Migrations\201803051702490_Trying to fix dates again.Designer.cs">
-      <DependentUpon>201803051702490_Trying to fix dates again.cs</DependentUpon>
+    <Compile Include="Migrations\201803071021361_Created Document and Image Tables, updated date format.cs" />
+    <Compile Include="Migrations\201803071021361_Created Document and Image Tables, updated date format.Designer.cs">
+      <DependentUpon>201803071021361_Created Document and Image Tables, updated date format.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -282,38 +242,8 @@
     <EmbeddedResource Include="Migrations\201801261433264_Back to origional.resx">
       <DependentUpon>201801261433264_Back to origional.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201801301609250_Upload Test.resx">
-      <DependentUpon>201801301609250_Upload Test.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201802011437068_Add Image Table.resx">
-      <DependentUpon>201802011437068_Add Image Table.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201802021227189_foreign Key for image table.resx">
-      <DependentUpon>201802021227189_foreign Key for image table.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201802261641175_New table relationships.resx">
-      <DependentUpon>201802261641175_New table relationships.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201802271139052_Fixing Table Relationships.resx">
-      <DependentUpon>201802271139052_Fixing Table Relationships.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201802271143079_Fix Tables.resx">
-      <DependentUpon>201802271143079_Fix Tables.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201802281002095_Date of Birth Added.resx">
-      <DependentUpon>201802281002095_Date of Birth Added.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201802281131321_Updated Dates.resx">
-      <DependentUpon>201802281131321_Updated Dates.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201802281137201_Fixing Dates.resx">
-      <DependentUpon>201802281137201_Fixing Dates.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201802281450114_Datearino.resx">
-      <DependentUpon>201802281450114_Datearino.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201803051702490_Trying to fix dates again.resx">
-      <DependentUpon>201803051702490_Trying to fix dates again.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201803071021361_Created Document and Image Tables, updated date format.resx">
+      <DependentUpon>201803071021361_Created Document and Image Tables, updated date format.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />

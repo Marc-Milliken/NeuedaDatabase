@@ -65,7 +65,7 @@ namespace NeuedaEmployees.Controllers
 
                 employee.EmployeeID = Guid.NewGuid();
 
-                
+
                 db.Employees.Add(employee);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -101,7 +101,7 @@ namespace NeuedaEmployees.Controllers
                 {
                     file.InputStream.CopyTo(ms);
                     byte[] array = ms.GetBuffer();
-                   // db.Employees.Add(path);
+                    // db.Employees.Add(path);
                 }
 
                 return RedirectToAction("Index");

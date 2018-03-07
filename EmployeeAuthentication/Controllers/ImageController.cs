@@ -53,15 +53,15 @@ namespace EmployeeAuthentication.Controllers
                     return RedirectToAction("Index", "Employee");
                 }
             }
-            
+
             return View(uploadimage);
         }
 
         public ActionResult Gallery()
         {
-                var image = db.Images.ToList();
-                return View(image);
-            
+            var image = db.Images.ToList();
+            return View(image);
+
         }
 
         // GET: Image/Display/

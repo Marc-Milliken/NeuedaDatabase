@@ -25,7 +25,7 @@ namespace Employees.Entities.Images
         [Display(Name = "Image Upload")]
         public string UploadImage { get; set; }
 
-        
+
         public virtual Employee EmployeeID { get; set; }
     }
 }

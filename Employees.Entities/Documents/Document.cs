@@ -15,12 +15,12 @@ namespace Employees.Entities.Documents
         [Display(Name = "Document Number")]
         public Guid DocumentID { get; set; }
 
-        
+
         [MaxLength(128)]
         [Display(Name = "Document Name")]
         public string Name { get; set; }
 
-        
+
         [MaxLength(128)]
         [Display(Name = "Document Content")]
         public byte[] Content { get; set; }

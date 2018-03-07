@@ -15,7 +15,7 @@ namespace Employees.Data
             {
                 List<Employee> employees = new List<Employee>();
                 employees = context.Employees.AsNoTracking().ToList();
-                
+
                 if (employees != null)
                 {
                     List<EmployeeDisplayViewModel> employeesDisplay = new List<EmployeeDisplayViewModel>();

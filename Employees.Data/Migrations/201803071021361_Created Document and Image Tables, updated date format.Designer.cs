@@ -7,13 +7,13 @@ namespace Employees.Data.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class UpdatedDates : IMigrationMetadata
+    public sealed partial class CreatedDocumentandImageTablesupdateddateformat : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(UpdatedDates));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(CreatedDocumentandImageTablesupdateddateformat));
         
         string IMigrationMetadata.Id
         {
-            get { return "201802281131321_Updated Dates"; }
+            get { return "201803071021361_Created Document and Image Tables, updated date format"; }
         }
         
         string IMigrationMetadata.Source
