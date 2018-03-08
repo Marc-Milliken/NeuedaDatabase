@@ -1,11 +1,11 @@
-﻿using EmployeeAuthentication.Models;
+﻿using Employees.Web.Models;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.Owin;
 using Owin;
 
-[assembly: OwinStartupAttribute(typeof(EmployeeAuthentication.Startup))]
-namespace EmployeeAuthentication
+[assembly: OwinStartupAttribute(typeof(Employees.Web.Startup))]
+namespace Employees.Web
 {
     public partial class Startup
     {

@@ -10,7 +10,7 @@ using System.Web.Mvc;
 using Employees.Data;
 using Employees.Entities.Employees;
 
-namespace NeuedaEmployees.Controllers
+namespace Employees.Web.Controllers
 {
     public class EmployeeController : Controller
     {

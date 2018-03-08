@@ -8,7 +8,7 @@ using Employees.Entities.Images;
 using Employees.Data;
 using System.Net;
 
-namespace EmployeeAuthentication.Controllers
+namespace Employees.Web.Controllers
 {
     public class ImageController : Controller
     {

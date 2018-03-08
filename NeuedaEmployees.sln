@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27130.2020
+VisualStudioVersion = 15.0.27130.2027
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Employees.Common", "Employees.Common\Employees.Common.csproj", "{F9123751-5D85-4111-899E-8C66345F3999}"
 EndProject
@@ -11,7 +11,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Employees.Entities", "Emplo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Employees.Data", "Employees.Data\Employees.Data.csproj", "{592C8B7C-C4CB-4140-BF05-44283A767960}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Employees.Web", "EmployeeAuthentication\Employees.Web.csproj", "{1B624523-4CF2-4B2F-9045-C3BE2519C4C3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Employees.Web", "Employees.Web\Employees.Web.csproj", "{1B624523-4CF2-4B2F-9045-C3BE2519C4C3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

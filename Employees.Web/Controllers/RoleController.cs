@@ -1,4 +1,4 @@
-﻿using EmployeeAuthentication.Models;
+﻿using Employees.Web.Models;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using System;
@@ -7,7 +7,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace EmployeeAuthentication.Controllers
+namespace Employees.Web.Controllers
 {
     public class RoleController : Controller
     {

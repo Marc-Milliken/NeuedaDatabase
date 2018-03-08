@@ -1,7 +1,7 @@
 ﻿using System.Web;
 using System.Web.Optimization;
 
-namespace EmployeeAuthentication
+namespace Employees.Web
 {
     public class BundleConfig
     {

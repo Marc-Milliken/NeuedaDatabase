@@ -10,7 +10,7 @@ using System.Web.Mvc;
 using Employees.Data;
 using Employees.Entities.Documents;
 
-namespace EmployeeAuthentication.Controllers
+namespace Employees.Web.Controllers
 {
     public class DocumentsController : Controller
     {

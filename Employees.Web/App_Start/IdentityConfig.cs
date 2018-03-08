@@ -10,12 +10,12 @@ using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using Microsoft.Owin.Security;
-using EmployeeAuthentication.Models;
+using Employees.Web.Models;
 using System.Diagnostics;
 using System.Configuration;
 using Twilio;
 
-namespace EmployeeAuthentication
+namespace Employees.Web
 {
     public class EmailService : IIdentityMessageService
     {
