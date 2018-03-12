@@ -23,7 +23,7 @@ namespace Employees.Entities.Employees
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
         [Display(Name = "Date of Birth")]
-        public string DateOfBirth { get; set; }
+        public DateTime DateOfBirth { get; set; }
 
         [Required]
         [MaxLength(128)]
@@ -54,7 +54,7 @@ namespace Employees.Entities.Employees
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
         [Display(Name = "Start Date")]
-        public string StartDate { get; set; }
+        public DateTime StartDate { get; set; }
 
         [Required]
         [MaxLength(128)]

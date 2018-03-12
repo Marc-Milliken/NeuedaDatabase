@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - Neueda Employee Database</title>
     @Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/jqueryui")
     @Scripts.Render("~/bundles/modernizr")
 
 </head>
@@ -39,6 +40,34 @@
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/jqueryui")
+    <script>
+        $(function () {
+            $("#DateOfBirth").datepicker({
+                dateFormat: "dd/mm/yy",
+                inline: true,
+                changeYear: true,
+                showOtherMonths: true,
+                yearRange: "-80:+0",
+                dayNamesMin: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
+            });
+        });
+    </script>
+
+    <script>
+        $(function () {
+            $("#StartDate").datepicker({
+                dateFormat: "dd/mm/yy",
+                inline: true,
+                changeYear: true,
+                showOtherMonths: true,
+                yearRange: "2006:+1",
+                dayNamesMin: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
+            });
+        });
+    </script>
+
+
     @RenderSection("scripts", required: false)
 </body>
 </html>

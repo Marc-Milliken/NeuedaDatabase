@@ -19,7 +19,7 @@ namespace Employees.Entities.Employees.ViewModels
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
         [Display(Name = "Date of Birth")]
-        public string DateOfBirth { get; set; }
+        public DateTime DateOfBirth { get; set; }
 
         [Display(Name = "Employee Address")]
         public string Address { get; set; }
@@ -39,7 +39,7 @@ namespace Employees.Entities.Employees.ViewModels
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
         [Display(Name = "Start Date")]
-        public string StartDate { get; set; }
+        public DateTime StartDate { get; set; }
 
         [Display(Name = "Previous Job")]
         public string PreviousJob { get; set; }
