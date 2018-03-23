@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Employees.Data;
+using EmployeeWeb.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,6 +10,9 @@ namespace Employees.Web.Controllers
 {
     public class HomeController : Controller
     {
+
+        private ApplicationDbContext db = new ApplicationDbContext();
+
         public ActionResult Index()
         {
             return View();
@@ -15,9 +20,14 @@ namespace Employees.Web.Controllers
 
         public ActionResult About()
         {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
+            IQueryable<EmployeeRoleCount> data = from employee in db.Employees
+                                                   group employee by employee.JobRole into jobGroup
+                                                   select new EmployeeRoleCount()
+                                                   {
+                                                       JobRole = jobGroup.Key,
+                                                       EmployeeCount = jobGroup.Count()
+                                                   };
+            return View(data.ToList());
         }
 
         public ActionResult Contact()

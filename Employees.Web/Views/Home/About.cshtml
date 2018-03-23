@@ -1,7 +1,30 @@
-﻿@{
-    ViewBag.Title = "About";
-}
-<h2>@ViewBag.Title.</h2>
-<h3>@ViewBag.Message</h3>
+﻿@model IEnumerable<EmployeeWeb.Models.EmployeeRoleCount>
 
-<p>Use this area to provide additional information.</p>
+@{
+    ViewBag.Title = "Employee Job Role Statistics";
+}
+
+<h2>Employee Job Role Statistics</h2>
+
+<table>
+    <tr>
+        <th>
+            Job Role
+        </th>
+        <th>
+            Employees
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.JobRole)
+            </td>
+            <td>
+                @item.EmployeeCount
+            </td>
+        </tr>
+    }
+</table>
