@@ -258,7 +258,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Context\Context.cs" />
-    <Compile Include="Employee\EmployeeRepoistory.cs" />
+    <Compile Include="Repository\EmployeeRepository.cs" />
+    <Compile Include="Repository\OldEmployeeRepoistory.cs" />
+    <Compile Include="Repository\IEmployeeRepository.cs" />
     <Compile Include="Migrations\201801221056329_InitialMigration.cs" />
     <Compile Include="Migrations\201801221056329_InitialMigration.Designer.cs">
       <DependentUpon>201801221056329_InitialMigration.cs</DependentUpon>

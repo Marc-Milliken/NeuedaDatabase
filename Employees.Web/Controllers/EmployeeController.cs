@@ -8,6 +8,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Employees.Data;
+using Employees.Data.Repository;
 using Employees.Entities.Employees;
 using PagedList;
 
@@ -15,7 +16,12 @@ namespace Employees.Web.Controllers
 {
     public class EmployeeController : Controller
     {
-        private ApplicationDbContext db = new ApplicationDbContext();
+        private IEmployeeRepository employeeRepository;
+
+        public EmployeeController()
+        {
+            this.employeeRepository = new EmployeeRepository(new ApplicationDbContext());
+        }
 
         // GET: Employee
         [Authorize(Roles = "Admin, Manager, Employee")]
@@ -36,8 +42,8 @@ namespace Employees.Web.Controllers
 
             ViewBag.CurrentFilter = searchString;
 
-            var employees = from s in db.Employees
-            select s;
+            var employees = from s in employeeRepository.GetEmployees()
+                            select s;
             if (!String.IsNullOrEmpty(searchString))
             {
                 employees = employees.Where(s => s.Name.Contains(searchString));
@@ -66,13 +72,13 @@ namespace Employees.Web.Controllers
 
         // GET: Employee/Details/
         [Authorize(Roles = "Admin, Manager, Employee")]
-        public ActionResult Details(Guid? id)
+        public ActionResult Details(Guid id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Employee employee = db.Employees.Find(id);
+            Employee employee = employeeRepository.GetEmployeeByID(id);
             if (employee == null)
             {
                 return HttpNotFound();
@@ -107,8 +113,8 @@ namespace Employees.Web.Controllers
                 employee.EmployeeID = Guid.NewGuid();
 
 
-                db.Employees.Add(employee);
-                db.SaveChanges();
+                employeeRepository.InsertEmployee(employee);
+                employeeRepository.Save();
                 return RedirectToAction("Index");
             }
 
@@ -166,13 +172,13 @@ namespace Employees.Web.Controllers
 
         // GET: Employee/Edit/
         [Authorize(Roles = "Admin, Manager")]
-        public ActionResult Edit(Guid? id)
+        public ActionResult Edit(Guid id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Employee employee = db.Employees.Find(id);
+            Employee employee = employeeRepository.GetEmployeeByID(id);
             if (employee == null)
             {
                 return HttpNotFound();
@@ -188,8 +194,8 @@ namespace Employees.Web.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(employee).State = EntityState.Modified;
-                db.SaveChanges();
+                employeeRepository.UpdateEmployee(employee);
+                employeeRepository.Save();
                 return RedirectToAction("Index");
             }
             return View(employee);
@@ -197,13 +203,13 @@ namespace Employees.Web.Controllers
 
         // GET: Employee/Delete/
         [Authorize(Roles = "Admin")]
-        public ActionResult Delete(Guid? id)
+        public ActionResult Delete(Guid id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Employee employee = db.Employees.Find(id);
+            Employee employee = employeeRepository.GetEmployeeByID(id);
             if (employee == null)
             {
                 return HttpNotFound();
@@ -217,9 +223,9 @@ namespace Employees.Web.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(Guid id)
         {
-            Employee employee = db.Employees.Find(id);
-            db.Employees.Remove(employee);
-            db.SaveChanges();
+            Employee employee = employeeRepository.GetEmployeeByID(id);
+            employeeRepository.DeleteEmployee(id);
+            employeeRepository.Save();
             return RedirectToAction("Index");
         }
 
@@ -227,7 +233,7 @@ namespace Employees.Web.Controllers
         {
             if (disposing)
             {
-                db.Dispose();
+                employeeRepository.Dispose();
             }
             base.Dispose(disposing);
         }

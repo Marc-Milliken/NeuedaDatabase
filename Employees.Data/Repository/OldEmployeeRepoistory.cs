@@ -7,7 +7,7 @@ using Employees.Entities.Employees.ViewModels;
 
 namespace Employees.Data
 {
-    public class EmployeeRepository
+    public class OldEmployeeRepository
     {
         public List<EmployeeDisplayViewModel> GetEmployees()
         {
