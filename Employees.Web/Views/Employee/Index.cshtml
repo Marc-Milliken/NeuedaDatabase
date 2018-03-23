@@ -1,4 +1,6 @@
-﻿@model IEnumerable<Employees.Entities.Employees.Employee>
+﻿@model PagedList.PagedList<Employees.Entities.Employees.Employee>
+@using PagedList.Mvc;
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
 
 @{
     ViewBag.Title = "Employee List";
@@ -10,19 +12,28 @@
 <p>
     @Html.ActionLink("Create New Employee", "Create")
 </p>
+
+@using (Html.BeginForm("Index", "Employee", FormMethod.Get))
+{
+    <p>
+        Search by Name: @Html.TextBox("searchString", ViewBag.CurrentFilter as string)
+        <input type="submit" value="Search" />
+    </p>
+}
+
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Name)
+            @Html.ActionLink("Employee Name", "Index", new { sortOrder = ViewBag.NameSortParm, currentFilter = ViewBag.CurrentFilter })
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.JobRole)
+            Job Role
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.StartDate)
+            @Html.ActionLink("Start Date", "Index", new { sortOrder = ViewBag.StartDateSortParm, currentFilter = ViewBag.CurrentFilter })
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Image)
+            Image
         </th>
         <th></th>
     </tr>
@@ -69,3 +80,7 @@
     }
 
 </table>
+
+@Html.PagedListPager(Model, page => Url.Action("Index", new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))
+
+Showing @Model.FirstItemOnPage to @Model.LastItemOnPage of @Model.TotalItemCount Employees

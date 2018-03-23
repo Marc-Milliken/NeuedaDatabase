@@ -9,6 +9,7 @@ using System.Web;
 using System.Web.Mvc;
 using Employees.Data;
 using Employees.Entities.Employees;
+using PagedList;
 
 namespace Employees.Web.Controllers
 {
@@ -18,9 +19,49 @@ namespace Employees.Web.Controllers
 
         // GET: Employee
         [Authorize(Roles = "Admin, Manager, Employee")]
-        public ActionResult Index()
+        public ViewResult Index(string sortOrder, string currentFilter, string searchString, int? page)
         {
-            return View(db.Employees.ToList());
+            ViewBag.CurrentSort = sortOrder;
+            ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "Name_desc" : "";
+            ViewBag.StartDateSortParm = sortOrder == "StartDate" ? "Name_desc" : "StartDate";
+
+            if (searchString != null)
+            {
+                page = 1;
+            }
+            else
+            {
+                searchString = currentFilter;
+            }
+
+            ViewBag.CurrentFilter = searchString;
+
+            var employees = from s in db.Employees
+            select s;
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                employees = employees.Where(s => s.Name.Contains(searchString));
+                                       
+            }
+            switch (sortOrder)
+            {
+                case "Name_desc":
+                    employees = employees.OrderByDescending(s => s.Name);
+                    break;
+                case "Date":
+                    employees = employees.OrderBy(s => s.StartDate);
+                    break;
+                case "Date_desc":
+                    employees = employees.OrderByDescending(s => s.StartDate);
+                    break;
+                default:  // Name ascending 
+                    employees = employees.OrderBy(s => s.Name);
+                    break;
+            }
+
+            int pageSize = 10;
+            int pageNumber = (page ?? 1);
+            return View(employees.ToPagedList(pageNumber, pageSize));
         }
 
         // GET: Employee/Details/

@@ -7,6 +7,8 @@
     @Styles.Render("~/Content/css")
     @Styles.Render("~/Content/jqueryui")
     @Scripts.Render("~/bundles/modernizr")
+    <script src="@Url.Content("~/Scripts/jquery.validate.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")"></script>
 
 </head>
 <body>
@@ -47,8 +49,10 @@
                 dateFormat: "dd/mm/yy",
                 inline: true,
                 changeYear: true,
+                changeMonth: true,
                 showOtherMonths: true,
                 yearRange: "-80:+0",
+                firstDay: 1,
                 dayNamesMin: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
             });
         });
@@ -60,8 +64,10 @@
                 dateFormat: "dd/mm/yy",
                 inline: true,
                 changeYear: true,
+                changeMonth: true,
                 showOtherMonths: true,
                 yearRange: "2006:+1",
+                firstDay: 1,
                 dayNamesMin: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
             });
         });
