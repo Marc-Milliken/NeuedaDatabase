@@ -21,11 +21,11 @@ namespace Employees.Web.Controllers
         public ActionResult About()
         {
             IQueryable<EmployeeRoleCount> data = from employee in db.Employees
-                                                   group employee by employee.JobRole into jobGroup
-                                                   select new EmployeeRoleCount()
-                                                   {
-                                                       JobRole = jobGroup.Key,
-                                                       EmployeeCount = jobGroup.Count()
+                                                 group employee by employee.JobRole into jobGroup
+                                                 select new EmployeeRoleCount()
+                                                 {
+                                                     JobRole = jobGroup.Key,
+                                                     EmployeeCount = jobGroup.Count()
                                                    };
             return View(data.ToList());
         }

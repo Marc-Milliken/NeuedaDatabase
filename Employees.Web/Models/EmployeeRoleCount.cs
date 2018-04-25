@@ -12,5 +12,7 @@ namespace EmployeeWeb.Models
 
         public int EmployeeCount { get; set; }
 
+        public int TotalEmployeeCount { get; set; }
+
     }
 }

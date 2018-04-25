@@ -4,6 +4,12 @@
     ViewBag.Title = "Employee Job Role Statistics";
 }
 
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="../Scripts/EmployeeCountSum.js"></script>
+</head>
+
+
 <h2>Employee Job Role Statistics</h2>
 
 <table>
@@ -12,9 +18,12 @@
             Job Role
         </th>
         <th>
+            &emsp;
             Employees
         </th>
     </tr>
+
+
 
     @foreach (var item in Model)
     {
@@ -22,9 +31,28 @@
             <td>
                 @Html.DisplayFor(modelItem => item.JobRole)
             </td>
-            <td>
-                @item.EmployeeCount
+            <td class="employeeCount">
+                &emsp;
+                <count>@item.EmployeeCount<count />
             </td>
         </tr>
     }
+
+    <tr>
+        <th>
+            <br />
+            Total Employees:
+        </th>
+
+        <td>
+            <br />
+            &emsp;
+            <b id="employeeCountSum"></b>
+        </td>
+
+    </tr>
+
+
+
 </table>
+
